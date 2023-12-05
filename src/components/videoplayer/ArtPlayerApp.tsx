@@ -40,7 +40,7 @@ const ArtPlayer = (props: props) => {
     setLoading(true);
     await axios
       .get(
-        `https://ashanime-api.vercel.app/meta/anilist/watch/${streamEpisode.id}`,
+        `https://consumet-api-mocha.vercel.app/meta/anilist/watch/${streamEpisode.id}`,
         {
           params: {
             ...(provider && { provider }),

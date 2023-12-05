@@ -9,7 +9,7 @@ export const getUserDataById = async (userId: string) => {
     return {};
   } catch (error) {
     return;
-    throw error;
+    // throw error;
   }
 };
 

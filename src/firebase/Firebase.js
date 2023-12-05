@@ -9,7 +9,7 @@ import {
 import { setUser } from "../redux/google-slice";
 import { firebaseConfig } from "./firebaseConfig";
 
-const envValue = process.env.REACT_APP_FIREBASE_CONFIG;
+// const envValue = process.env.REACT_APP_FIREBASE_CONFIG;
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -32,8 +32,10 @@ export const SignInWithGoogle = (dispatch) => {
 };
 
 export const SignInAnonymously = (dispatch) => {
+  console.log("auth:=> ", auth);
   signInAnonymously(auth)
-    .then((result) => {
+  .then((result) => {
+      console.log("result:=> ", result);
       const user = result.user;
       localStorage.setItem("user", JSON.stringify(user));
       dispatch(setUser(user));

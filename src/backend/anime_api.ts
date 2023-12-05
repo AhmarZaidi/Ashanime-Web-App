@@ -11,7 +11,9 @@ const AnimeProviders = {
 export type AnimeProvider = keyof typeof AnimeProviders;
 
 export class AnimeApi {
-  host = "https://ashanime-api.vercel.app";
+  // host = "https://ashanime-api.vercel.app";
+  host = "https://consumet-api-mocha.vercel.app";
+  // host = "https://api.consumet.org/anime/gogoanime";
   provider;
 
   constructor(provider: AnimeProvider = "GOGO") {
@@ -28,6 +30,7 @@ export class AnimeApi {
         },
       })
     ).data;
+    // return (await axios.get(url)).data;
   }
 
   async advancedSearch(params = {}) {
@@ -36,10 +39,16 @@ export class AnimeApi {
 
   async getRandom(params = {}) {
     return this.consumetApiGetCall("/meta/anilist/random-anime", params);
+    // return {
+    //   results: ["mob"]
+    // }
   }
 
   async getTrending(params = {}) {
+    // let res = await this.consumetApiGetCall("/top-airing", params)
+    // console.log("getTrending=> ", res.results)
     return this.consumetApiGetCall("/meta/anilist/trending", params);
+    // return this.consumetApiGetCall("/top-airing", params);
   }
 
   async getRecentEpisodes(params = {}) {
@@ -47,6 +56,9 @@ export class AnimeApi {
       perPage: 15,
       ...params,
     });
+    // return {
+    //   results: ["mob"]
+    // }
   }
 
   async getPopular(params = {}) {
@@ -54,6 +66,9 @@ export class AnimeApi {
       perPage: 20,
       ...params,
     });
+    // return {
+    //   results: [{"title": "mob"}]
+    // }
   }
 
   async getUpcomingAnimes(params = {}) {

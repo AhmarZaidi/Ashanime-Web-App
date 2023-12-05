@@ -94,6 +94,7 @@ const Hero = () => {
           >
             {trending.map((anime) => {
               if (anime.cover.includes("banner")) {
+              // if (anime.image) {
                 return (
                   <SwiperSlide key={anime.id}>
                     <div className="rounded-xl  lg:h-[28rem] h-[20rem] w-full flex justify-center relative">
